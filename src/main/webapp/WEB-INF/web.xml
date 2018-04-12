@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>presentation.ServletLogin</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ServletListeClients</servlet-name>
+  	<display-name>ServletListeClients</display-name>
+  	<description></description>
+  	<servlet-class>presentation.ServletListeClients</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ServletLogin</servlet-name>
   	<url-pattern>/ServletLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletListeClients</servlet-name>
+  	<url-pattern>/ServletListeClients</url-pattern>
   </servlet-mapping>
 </web-app>

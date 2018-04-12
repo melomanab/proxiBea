@@ -1,41 +1,32 @@
 package presentation;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import domaine.Client;
 import domaine.Conseiller;
 import services.ConseillerService;
 
 /**
- * Servlet implementation class ServletLogin
+ * Servlet implementation class ServletListeClients
  */
-// === SOURTOUT NE PAS DECOMMENTER ====
-// @WebServlet("/servletlogin")
-public class ServletLogin extends HttpServlet {
+public class ServletListeClients extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServletLogin() {
+	public ServletListeClients() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -60,55 +51,36 @@ public class ServletLogin extends HttpServlet {
 		// PrintWriter out = response.getWriter();
 		// out.append("doPost de la servlet /ServletLogin");
 		// out.append(request.getContextPath());
-
-		// 1.--Recup infos formulaire 
-		String login = request.getParameter("login");
-		String password = request.getParameter("password");
-
-
-		// Instantiation conseiller a partir des parametres rentrés
-		// par l'utilisater
-		Conseiller conseillerFromLogin = new Conseiller(login, password);
+		/*
+		 
+		 */
+		// 1.--Recup infos
+		Conseiller conseiller = (Conseiller) request.getAttribute("conseillerSession");
 
 		// 2.--Appel service
 
 		// Instantiation conseiller Service
 		ConseillerService cs = new ConseillerService();
-		// Appel methode authentification de ConseillerService
-		boolean conseillerExistant = cs.authentification(conseillerFromLogin);
 
-		// boolean conseillerExistant = (password.equals("PASSWORD"));
+		// Appel ConseillerService methode listeDeClients(Conseiller c):
+		// ArrayList<Client>
+		// ====================
+		ArrayList<Client> listeClientsConseiller = cs.listeDeClients(conseiller);
 
 		// 3.-- Page a renvoyer
 		// HttpSession maSession = request.getSession();
-		
+
 		// Données dynamiques
-		request.setAttribute("login", conseillerFromLogin.getLogin());
-		request.setAttribute("password", conseillerFromLogin.getPassword());
-		
+		request.setAttribute("listeClients", listeClientsConseiller);
+
 		RequestDispatcher distpatcher;
 
-		if (conseillerExistant) {
-			
-			request.setAttribute("conseillerSession", conseillerFromLogin);
-			// Appel ConseillerService methode listeDeClients(Conseiller c): ArrayList<Client>
-			// ====================
-//			ArrayList<Client> listeClientsConseiller = cs.listeDeClients(conseillerFromLogin);
-//			
-//			request.setAttribute("listeClients", listeClientsConseiller);
-
-			distpatcher = request.getRequestDispatcher("/ServletListeClients");
-			distpatcher.forward(request, response);
-
-		} else {
-			distpatcher = request.getRequestDispatcher("erreur-authentification.jsp");
-			distpatcher.forward(request, response);
-		}
+		distpatcher = request.getRequestDispatcher("/liste-clients.jsp");
+		distpatcher.forward(request, response);
 
 		// out.close();
 
 		// distpatcher.forward(request, response);
 
 	}
-
 }
