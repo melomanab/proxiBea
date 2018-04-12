@@ -2,26 +2,28 @@ package services;
 
 import java.util.ArrayList;
 
+import domaine.Client;
 import domaine.Conseiller;
 
 public class ConseillerService {
 
-	// TO-DO Declaration Dao
+	// TODO Decommenter apres rajout des classes daos
+	//// Declaration DaoS + rajout Constructeur qui l'instancient
 	// ConseillerDao conseillerDao;
+	// ClientDao clientDao;
+	
 
-	/**
-	 * @param conseillerFromLogin
-	 * @return
-	 */
 	public boolean authentification(Conseiller conseillerFromLogin) {
 		boolean conseillerExistant = false;
 
-		// TO-DO recuperation liste conseillers
-		// listeConseillers = conseillerDao.getAll()
-		ArrayList<Conseiller> listeConseillers = new ArrayList<Conseiller>();
-		listeConseillers.add(new Conseiller(1, "login1", "password1"));
-		listeConseillers.add(new Conseiller(2, "login2", "password2"));
-		listeConseillers.add(new Conseiller(3, "login3", "password3"));
+		// TODO recuperation liste conseillers
+		// allConseillers = this.conseillerDao.getAll()
+		
+		// TODO effacer liste provisoire
+		ArrayList<Conseiller> allConseillers = new ArrayList<Conseiller>();
+		allConseillers.add(new Conseiller(1, "login1", "password1"));
+		allConseillers.add(new Conseiller(2, "login2", "password2"));
+		allConseillers.add(new Conseiller(3, "login3", "password3"));
 
 		String login = conseillerFromLogin.getLogin();
 		String password = conseillerFromLogin.getPassword();
@@ -30,7 +32,7 @@ public class ConseillerService {
 		// si une entree coincide avec le login et password 
 		// saisis par l'utilisateur, l'ID conseiller est
 		// rajouté au conseiller entrée en paramètre de la methode
-		for (Conseiller conseiller : listeConseillers) {
+		for (Conseiller conseiller : allConseillers) {
 
 			if (login.equals(conseiller.getLogin())) {
 				if (password.equals(conseiller.getPassword())) {					
@@ -43,6 +45,30 @@ public class ConseillerService {
 		}
 
 		return conseillerExistant;
+	}
+	
+	public ArrayList<Client> listeDeClients(Conseiller conseillerFromLogin){
+		
+		ArrayList<Client> listeClientsConseiller = new ArrayList<Client>();
+		
+		//TODO appel dao client pour recuperation liste clients
+		// allClients = this.clientDao.getAll()
+				
+		//TODO effacer liste allClients provisoire
+		// new Client("nom", "prenom", "email", "numeroVoie", "voie", "codePostal", "ville", 1);
+		ArrayList<Client> allClients = new ArrayList<Client>();
+		allClients.add(new Client(1, "nom1", "prenom1", "email1", "numeroVoie1", "voie1", "codePostal1", "ville1", 1));
+		allClients.add(new Client(2, "nom2", "prenom2", "email2", "numeroVoie2", "voie2", "codePostal2", "ville2", 2));
+		allClients.add(new Client(3, "nom3", "prenom3", "email3", "numeroVoie3", "voie3", "codePostal3", "ville3", 1));
+		allClients.add(new Client(4, "nom4", "prenom4", "email4", "numeroVoie4", "voie4", "codePostal4", "ville4", 2));
+		
+		for (Client cl : allClients) {
+			if (cl.getIdConseiller() == conseillerFromLogin.getIdConseiller()){
+				listeClientsConseiller.add(cl);
+			}
+		}
+		
+		return listeClientsConseiller;
 	}
 
 }

@@ -13,7 +13,7 @@ Liste clients
 
 </br></br>
 Login conseiller: <c:out value="${login}"/> </br></br>
-Psw Conseiller: <c:out value="${password}"/> </br></br>
+Psw conseiller: <c:out value="${password}"/> </br></br>
 
 <c:forEach items="${listeClients}" var="client" >
 </br></br>

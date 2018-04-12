@@ -13,11 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domaine.Client;
+import domaine.Conseiller;
+import services.ConseillerService;
 
 /**
  * Servlet implementation class ServletLogin
  */
-//@WebServlet("/servletlogin")
+// === SOURTOUT NE PAS DECOMMENTER ====
+// @WebServlet("/servletlogin")
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,13 +39,13 @@ public class ServletLogin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+
 		System.out.println("doGet de la servlet /ServletLogin");
 		response.getWriter().append("doGet de la servlet /ServletLogin").append(request.getContextPath());
 
 		this.getServletContext().getRequestDispatcher("/liste-clients.jsp").forward(request, response);
-		
+
 	}
 
 	/**
@@ -52,57 +55,58 @@ public class ServletLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		//System.out.println("doGet de la servlet /ServletLogin");
-//		PrintWriter out = response.getWriter();		
-//		out.append("doPost de la servlet /ServletLogin");
-//		out.append(request.getContextPath());
+		// doGet(request, response);
+		// System.out.println("doGet de la servlet /ServletLogin");
+		// PrintWriter out = response.getWriter();
+		// out.append("doPost de la servlet /ServletLogin");
+		// out.append(request.getContextPath());
 
-		
-		
-		// 1.--Recup infos formulaire
+		// 1.--Recup infos formulaire 
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
 
-		// 2.--Passer les infos couche service
 
-		// TO-DO ==============
-		// boolean conseillerExistant = ServiceConseiller.authentification();
-		// ====================
+		// Instantiation conseiller a partir des parametres rentrés
+		// par l'utilisater
+		Conseiller conseillerFromLogin = new Conseiller(login, password);
+		
+		// 2.--Appel service
 
-		boolean conseillerExistant = (password.equals("PASSWORD"));
+		// Instantiation conseiller Service
+		ConseillerService cs = new ConseillerService();
+		// Appel methode authentification de ConseillerService
+		boolean conseillerExistant = cs.authentification(conseillerFromLogin);
 
-		// 3.-- Page � renvoyer
-		request.setAttribute("login", login);
-		request.setAttribute("password", password);
+		// boolean conseillerExistant = (password.equals("PASSWORD"));
 
-		//HttpSession maSession = request.getSession();
+		// 3.-- Page a renvoyer
+		// HttpSession maSession = request.getSession();
+		
+		// Données dynamiques
+		request.setAttribute("login", conseillerFromLogin.getLogin());
+		request.setAttribute("password", conseillerFromLogin.getPassword());
+		
 		RequestDispatcher distpatcher;
 
 		if (conseillerExistant) {
-		//if (true) {
-
-
-			// TO-DO ==============
-			// appel � ServiceConseiller.listeDeClients(Conseiller c): ArrayList<Client>
+			
+			// Appel ConseillerService methode listeDeClients(Conseiller c): ArrayList<Client>
 			// ====================
-			ArrayList<Client> maListeClients = new ArrayList<Client>();
-			Client clientBD = new Client("nom", "prenom", "email", "numeroVoie", "voie", "codePostal", "ville", 1);
-			maListeClients.add(clientBD);
-			request.setAttribute("listeClients", maListeClients);
+			ArrayList<Client> listeClientsConseiller = cs.listeDeClients(conseillerFromLogin);
 			
-			distpatcher = request.getRequestDispatcher("/liste-clients-TEST.html");
+			request.setAttribute("listeClients", listeClientsConseiller);
+
+			distpatcher = request.getRequestDispatcher("/liste-clients.jsp");
 			distpatcher.forward(request, response);
-			
+
 		} else {
-			distpatcher=request.getRequestDispatcher("erreur-authentification.jsp");
+			distpatcher = request.getRequestDispatcher("erreur-authentification.jsp");
 			distpatcher.forward(request, response);
 		}
-		
-//		out.close();
 
-		
-		//distpatcher.forward(request, response);
+		// out.close();
+
+		// distpatcher.forward(request, response);
 
 	}
 
