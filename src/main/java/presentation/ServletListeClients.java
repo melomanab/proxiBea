@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import domaine.Client;
 import domaine.Conseiller;
@@ -54,8 +55,9 @@ public class ServletListeClients extends HttpServlet {
 		/*
 		 
 		 */
-		// 1.--Recup infos
-		Conseiller conseiller = (Conseiller) request.getAttribute("conseillerSession");
+		// 1.--Recup infos de SESSION
+		HttpSession session = request.getSession();
+		Conseiller conseiller = (Conseiller) session.getAttribute("conseillerSession");
 
 		// 2.--Appel service
 

@@ -1,18 +1,15 @@
 package presentation;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import domaine.Client;
 import domaine.Conseiller;
 import services.ConseillerService;
 
@@ -80,7 +77,7 @@ public class ServletLogin extends HttpServlet {
 		// boolean conseillerExistant = (password.equals("PASSWORD"));
 
 		// 3.-- Page a renvoyer
-		// HttpSession maSession = request.getSession();
+		
 		
 		// Données dynamiques
 		request.setAttribute("login", conseillerFromLogin.getLogin());
@@ -89,8 +86,8 @@ public class ServletLogin extends HttpServlet {
 		RequestDispatcher distpatcher;
 
 		if (conseillerExistant) {
-			
-			request.setAttribute("conseillerSession", conseillerFromLogin);
+			HttpSession session = request.getSession();
+			session.setAttribute("conseillerSession", conseillerFromLogin);
 			// Appel ConseillerService methode listeDeClients(Conseiller c): ArrayList<Client>
 			// ====================
 //			ArrayList<Client> listeClientsConseiller = cs.listeDeClients(conseillerFromLogin);
