@@ -1,6 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  
+  
   <groupId>fr.gtm</groupId>
   <artifactId>proxibanqueWebapp</artifactId>
   <packaging>war</packaging>
@@ -15,14 +17,21 @@
       <scope>test</scope>
     </dependency>
     
- 
-    	<!-- Servlet 4.0 -->
-		<dependency>
+ 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>4.0.0</version>
-			<scope>provided</scope>
-		</dependency>
+			<version>3.1.0</version>
+		<scope>provided</scope>
+		</dependency>	
+		
+<!--     	Servlet 4.0 -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>javax.servlet</groupId> -->
+<!-- 			<artifactId>javax.servlet-api</artifactId> -->
+<!-- 			<version>4.0.0</version> -->
+<!-- 			<scope>provided</scope> -->
+<!-- 		</dependency> -->
+
 		<!-- Driver JDBC mySql -->
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
