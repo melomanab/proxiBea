@@ -98,7 +98,7 @@ public class ServletLogin extends HttpServlet {
 			distpatcher.forward(request, response);
 
 		} else {
-			distpatcher = request.getRequestDispatcher("erreur-authentification.jsp");
+			distpatcher = request.getRequestDispatcher("login-erreur.jsp");
 			distpatcher.forward(request, response);
 		}
 

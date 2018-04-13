@@ -1,14 +1,62 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Accueil</title>
+<!-- links bootstrap -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- liaison vers feuille de styles CSS -->
+<link rel="stylesheet" style="text/css" href="styles.css" media="screen" />
+<title>Proxibanque</title>
 </head>
+
 <body>
 
-Login
+	<!-- bloc header -->
+	<header>
+		<!-- bloc navigation -->
 
-<a class="p-2 text-dark" href="login.jsp">Login</a> 
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				
+				<!-- menu de navigation -->
+				<div class="navbar-header">
+					<a class="navbar-brand">Proxibanque</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="ServletListeClients">Accueil</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+
+
+	<!-- bloc section -->
+	<section>
+		<!-- premiere ligne -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-8" id="colonne-left-index"></div>
+				<div class="col-sm-3" id="colonne-right-index">
+
+					<p>Bienvenue sur l'application web de Proxibanque, votre banque
+						qu'elle est bien.</p>
+					<a href="login.jsp"><button type="button" class="btn"
+							class="active">Accéder au site</button></a>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	
+
 
 </body>
 </html>
