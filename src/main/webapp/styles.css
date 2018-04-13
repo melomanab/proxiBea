@@ -1,0 +1,132 @@
+@charset "ISO-8859-1";
+
+TODO à retirer en fin de structuration de page
+* {
+	border: black solid 1px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: url(piggy-2889041_1920.jpg) no-repeat center fixed;
+	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+	background-size: cover; /* version standardisée */
+}
+
+.row {
+	padding: 10px;
+}
+
+section {
+	height: 600px;
+	font-family: calibri;
+	padding-top: 50px;
+	border-top: grey solid 1px;
+	font-family: calibri;
+}
+
+footer {
+	font-family: calibri;
+	border-top: grey solid 1px;
+	height: 80px;
+	background-color: lightgrey;
+	padding-top: 20px;
+}
+
+.container-fluid {
+	padding-left: 10px;
+	text-align: center;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+.btn {
+	background-color: lightblue;
+	color: grey;
+}
+
+p {
+	font-size: 20px;
+	color: grey;
+}
+
+#colonne-right-index {
+	background-color: white;
+	height: auto;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	border-radius: 10px;
+	border: grey solid 1px;
+}
+
+form {
+	background-color: white;
+	border-radius: 10px;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: grey solid 1px;
+	margin-top: 20px;
+	border: grey solid 1px;
+}
+
+#row1-erreur {
+	background-color: white;
+	height: 50px;
+	padding-left: auto;
+	padding-right: auto;
+	border-radius: 10px;
+}
+
+#message-erreur {
+	color: red;
+	padding-top: auto;
+	background-color: white;
+	height: 50px;
+	padding-top: auto;
+	padding-bottom: auto;
+	border-radius: 10px;
+	line-height: 50px;
+}
+
+.colonne-virement {
+	background-color: white;
+	height: 300px;
+	width: 100px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	border-radius: 10px;
+	border: grey solid 1px;
+}
+
+.btn {
+	display: block;
+	margin: auto;
+}
+
+td {
+	text-align: left;
+}
+
+.virement-box {
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+}
+
+.actions {
+	color: green;
+	font-size: 12px;
+}
+
+#bouton-retour-login {
+	text-align:center;
+}
+
+p {
+	color:black;
+}

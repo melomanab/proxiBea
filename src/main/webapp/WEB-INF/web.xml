@@ -16,6 +16,18 @@
   	<description></description>
   	<servlet-class>presentation.ServletListeClients</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ServletEdition</servlet-name>
+  	<display-name>ServletEdition</display-name>
+  	<description></description>
+  	<servlet-class>presentation.ServletEdition</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ServletComptes</servlet-name>
+  	<display-name>ServletComptes</display-name>
+  	<description></description>
+  	<servlet-class>presentation.ServletComptes</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ServletLogin</servlet-name>
   	<url-pattern>/ServletLogin</url-pattern>
@@ -23,5 +35,13 @@
   <servlet-mapping>
   	<servlet-name>ServletListeClients</servlet-name>
   	<url-pattern>/ServletListeClients</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletEdition</servlet-name>
+  	<url-pattern>/ServletEdition</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletComptes</servlet-name>
+  	<url-pattern>/ServletComptes</url-pattern>
   </servlet-mapping>
 </web-app>

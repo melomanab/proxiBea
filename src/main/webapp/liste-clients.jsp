@@ -33,7 +33,7 @@
 			<a class="navbar-brand">Proxibanque</a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="index.html">Accueil</a></li>
+			<li class="active"><a href="ServletListeClients">Accueil</a></li>
 		</ul>
 	</div>
 	</nav> </header>
@@ -66,13 +66,13 @@
 
 							<!-- méthode GET pour diriger vers la page cible avec le paramètres compte = numCompte à affiche -->
 							<td><a
-								href="/ServletEditionClient?idClient=<c:out value="{$client.idClient}"/>">mettre
+								href="/ServletEdition?idClient=<c:out value="{$client.idClient}"/>">mettre
 									à jour</a></td>
 							<td><a
-								href="/ServletComptesClient?idClient=<c:out value="{$client.idClient}"/>">liste
+								href="/ServletComptes?idClient=<c:out value="{$client.idClient}"/>">liste
 									comptes</a></td>
 							<td><a
-								href="/ServletVirementClient?idClient=<c:out value="{$client.idClient}"/>">virement</a></td>
+								href="/ServletVirementClient?idClient=<c:out value="{$client.idClient}"/>">virement</a></td> 
 						</tr>
 					</tbody>
 				</c:forEach>
