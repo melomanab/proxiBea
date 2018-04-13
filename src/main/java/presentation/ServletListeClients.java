@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import domaine.Client;
 import domaine.Conseiller;
-import services.ConseillerService;
+import service.ConseillerService;
 
 /**
  * Servlet implementation class ServletListeClients
@@ -33,10 +33,10 @@ public class ServletListeClients extends HttpServlet {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 
-		System.out.println("doGet de la servlet /ServletLogin");
-		response.getWriter().append("doGet de la servlet /ServletLogin").append(request.getContextPath());
-
-		this.getServletContext().getRequestDispatcher("/liste-clients.jsp").forward(request, response);
+//		System.out.println("doGet de la servlet /ServletLogin");
+//		response.getWriter().append("doGet de la servlet /ServletLogin").append(request.getContextPath());
+//
+//		this.getServletContext().getRequestDispatcher("/liste-clients.jsp").forward(request, response);
 
 	}
 

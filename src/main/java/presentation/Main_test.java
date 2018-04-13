@@ -1,7 +1,7 @@
 package presentation;
 
 import domaine.Conseiller;
-import services.ConseillerService;
+import service.ConseillerService;
 
 public class Main_test {
 
