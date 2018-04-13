@@ -45,6 +45,11 @@ public class Client {
 	}
 
 
+	public Client() {
+		super();
+	}
+
+
 	public int getIdClient() {
 		return idClient;
 	}

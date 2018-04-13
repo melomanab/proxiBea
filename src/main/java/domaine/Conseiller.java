@@ -19,6 +19,13 @@ public class Conseiller {
 		this.login = login;
 		this.password = password;
 	}
+	
+	
+
+	public Conseiller() {
+		super();
+	}
+
 
 	public int getIdConseiller() {
 		return idConseiller;

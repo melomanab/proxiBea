@@ -24,6 +24,11 @@ public class Compte {
 		this.solde = solde;
 		this.idClient = idClient;
 	}
+	
+
+	public Compte() {
+		super();
+	}
 
 	public int getIdCompte() {
 		return idCompte;
